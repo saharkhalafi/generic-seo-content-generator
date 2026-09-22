@@ -1,4 +1,5 @@
 [tool.pytest.ini_options]
+pythonpath = "."
 markers = [
     "integration: requires DATABASE_URL and live PostgreSQL",
     "regression: compares against saved SEO baseline",
