@@ -1,0 +1,16 @@
+# Local app container. Uses the PostgreSQL already configured in .env.
+# POSTGRES_HOST_OVERRIDE points the container at the host database.
+services:
+  seo-app:
+    build: .
+    ports:
+      - "8080:8080"
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      PORT: "8080"
+      LOG_FORMAT: json
+      POSTGRES_HOST_OVERRIDE: host.docker.internal
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
